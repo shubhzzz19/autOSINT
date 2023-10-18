@@ -7,7 +7,7 @@ def run_dnstwist(e_Domain):
         result = subprocess.check_output(
             ["dnstwist", e_Domain], stderr=subprocess.STDOUT, text=True
         )
-        print(result)
+        # print(result)
         return result
     except subprocess.CalledProcessError as e:
         return e.output

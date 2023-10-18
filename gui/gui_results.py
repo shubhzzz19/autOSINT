@@ -2,12 +2,11 @@ import tkinter as tk
 from tkinter import messagebox
 from tkinter.ttk import Progressbar
 from tkinter import *
-from apis.typo_sqaut import run_dnstwist
-
+import datetime
 
 # Create GUI
 class Result:
-       def __init__(self, win, fake_domain):
+       def __init__(self, win, fake_domain,IP,org_info,phone):
               self.root = win
               self.root.title("Results")
               w = 1200
@@ -36,8 +35,33 @@ class Result:
               passeneger = StringVar()
               price = StringVar()
 
-              # Create label display the app name
-              self.label = Label(self.root, text=fake_domain, font=fnt5, fg="#443565")
-              self.label.place(x=370, y=50)
+              # Creating file for typo sqaut 
+              current_datetime = datetime.datetime.now()
+              formatted_datetime = current_datetime.strftime("%Y-%m-%d_%H-%M-%S")
+              if fake_domain:
+                     with open(f'D:/autOSINT/results/typo_sqaut_{formatted_datetime}.txt', 'w') as file:
+                            file.write(fake_domain)
+                     self.label = Label(self.root, text=f'View the fake domain similar to the domain in D:/autOSINT/results/typo_sqaut_{formatted_datetime}.txt', font=fnt5, fg="#443565")
+                     self.label.place(x=70, y=50)
 
+              # Creating file for IP lookup
+              if IP:
+                     with open(f'D:/autOSINT/results/ip_lookup_{formatted_datetime}.txt', 'w') as file:
+                            file.write(IP)
+                     self.label = Label(self.root, text=f'View the IP loop up in D:/autOSINT/results/ip_lookup_{formatted_datetime}.txt', font=fnt5, fg="#443565")
+                     self.label.place(x=70, y=90)
+              
+              # Creating file for Organization Information
+              if org_info:
+                     with open(f'D:/autOSINT/results/org_info_{formatted_datetime}.txt', 'w') as file:
+                            file.write(org_info)
+                     self.label = Label(self.root, text=f'View the Organization Information in D:/autOSINT/results/org_info_{formatted_datetime}.txt', font=fnt5, fg="#443565")
+                     self.label.place(x=70, y=140)           
+              
+              # Creating file for Phone Information
+              if phone:
+                     with open(f'D:/autOSINT/results/Phone_info_{formatted_datetime}.txt', 'w') as file:
+                            file.write(phone)
+                     self.label = Label(self.root, text=f'View the Phone Information in D:/autOSINT/results/Phone_info_{formatted_datetime}.txt', font=fnt5, fg="#443565")
+                     self.label.place(x=70, y=180)   
               self.root.mainloop()

@@ -9,12 +9,4 @@ def lookup(ip):
             f"hosting,query") as result:
 
         info = result.json()
-    return print(json.dumps(info, indent=4))
-
-
-while True:
-    ip = input('Enter IP you want to lookup: ')
-    lookup(ip)
-    question = input("Would you like to keep looking up IP's? Say yes or no.")
-    if question.lower() == "no":
-        break
+    return json.dumps(info, indent=4)

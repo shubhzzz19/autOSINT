@@ -13,17 +13,19 @@ def search_organization_details(domain):
         if response.status_code == 200:
             data = response.json()
             # Extract and print relevant organization details
-            print(f"Name: {data['name']}")
-            print(f"Domain: {data['domain']}")
-            print(f"Description: {data['description']}")
-            print(f"Location: {data['location']}")
-            print(f"Employees: {data['metrics']['employees']}")
+            return '\n'.join([
+            f"Name: {data['name']}",
+            f"Domain: {data['domain']}",
+            f"Description: {data['description']}",
+            f"Location: {data['location']}",
+            f"Employees: {data['metrics']['employees']}"])
 
         elif response.status_code == 404:
             print(f"Organization with domain '{domain}' not found.")
 
         else:
-            print(f"Error: {response.status_code} - {response.text}")
+            return (f"Error: {response.status_code} - {response.text}")
 
     except Exception as e:
-        print(f"An error occurred: {str(e)}")
+        return (f"An error occurred: {str(e)}")
+

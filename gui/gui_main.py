@@ -7,7 +7,7 @@ from apis.typo_sqaut import run_dnstwist
 from apis.lookup import lookup
 from apis.org_details import search_organization_details
 from apis.phone import phone_osint
-from apis.portscanner import scan_ip
+
 class Main:
        def __init__(self, win):
               self.root = win
@@ -29,8 +29,7 @@ class Main:
               fnt6 = ("Times New Roman", 10)
               # Create String Var
               name = StringVar()
-              global address
-              address = str()
+              address = StringVar()
               mobile = StringVar()
               date_fly = StringVar()
               time_fly = StringVar()
@@ -81,10 +80,10 @@ class Main:
               self.e_Domain = Entry(self.root, width=30, font=fnt4, textvariable=address)
               self.e_Domain.place(x=600, y=255)
 
-              self.nm_per = Label(self.root, text="Name of Person:", font=fnt2, fg="#443565")
-              self.nm_per.place(x=332, y=300)
-              self.e_nm_per = Entry(self.root, width=30, font=fnt4, textvariable=mobile)
-              self.e_nm_per.place(x=600, y=305)
+              self.ip = Label(self.root, text="Enter IP:", font=fnt2, fg="#443565")
+              self.ip.place(x=332, y=300)
+              self.e_ip = Entry(self.root, width=30, font=fnt4, textvariable=mobile)
+              self.e_ip.place(x=600, y=305)
 
               self.nm_org = Label(
               self.root, text="Name of Organization:", font=fnt2, fg="#443565"
@@ -95,7 +94,7 @@ class Main:
 
               self.email = Label(self.root, text="E-Mail address:", font=fnt2, fg="#443565")
               self.email.place(x=340, y=400)
-              self.e_email = Entry(self.root, width=30, font=fnt4, textvariable=time_fly)
+              self.e_email = Entry(self.root, width=30, font=fnt4, textvariable=price)
               self.e_email.place(x=600, y=405)
 
               self.phone = Label(self.root, text="Phone-no:", font=fnt2, fg="#443565")
@@ -128,7 +127,7 @@ class Main:
        def perform_fetch(self):
               # self.root.destroy()
               self.win = tk.Tk()
-              self.app = Result(self.win, fake_domain=str(run_dnstwist(self.e_Domain.get())))
+              self.app = Result(self.win, fake_domain=str(run_dnstwist(self.e_Domain.get())),IP=lookup((self.e_ip.get())),org_info=search_organization_details(self.e_Domain.get()),phone=str(phone_osint(self.e_phone.get())))
               self.root.mainloop()
 
        def exit_app(self):
