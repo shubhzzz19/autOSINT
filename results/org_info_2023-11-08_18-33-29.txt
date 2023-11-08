@@ -1,0 +1,5 @@
+Name: Google
+Domain: google.com
+Description: Google is a multinational corporation that specializes in internet-related services and products. Its mission is to organize the world's information and make it universally accessible and useful.
+Location: 1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA
+Employees: 178234

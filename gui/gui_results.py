@@ -34,16 +34,20 @@ class Result:
               destination = StringVar()
               passeneger = StringVar()
               price = StringVar()
-
+              
+              self.v = Scrollbar(self.root, orient='vertical')
               # Creating file for typo sqaut 
               current_datetime = datetime.datetime.now()
               formatted_datetime = current_datetime.strftime("%Y-%m-%d_%H-%M-%S")
               if fake_domain:
                      with open(f'D:/autOSINT/results/typo_sqaut_{formatted_datetime}.txt', 'w') as file:
                             file.write(fake_domain)
-                     self.label = Label(self.root, text=f'View the fake domain similar to the domain in D:/autOSINT/results/typo_sqaut_{formatted_datetime}.txt', font=fnt5, fg="#443565")
+                     self.label = Label(self.root, text='Fake Domains for the typosqauting: ', font=fnt5, fg="#443565")
                      self.label.place(x=70, y=50)
-
+                     self.typo_text=Text(self.root,yscrollcommand=self.v.set, font=fnt5, fg="#443565")
+                     self.typo_text.insert("1.0", fake_domain)
+                     self.v.config(command=self.typo_text.yview)
+                     self.typo_text.place(x=180,y=50)
               # Creating file for IP lookup
               if IP:
                      with open(f'D:/autOSINT/results/ip_lookup_{formatted_datetime}.txt', 'w') as file:
