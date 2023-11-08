@@ -1,6 +1,9 @@
 import requests
 
-CLEARBIT_API_KEY = 'sk_d757a879f699c344bc11970e3efaf263'
+# API key read from hidden file not in git repository
+with open(".phone_veriphone_secrets", "r") as file:
+    CLEARBIT_API_KEY  = file.read().rstrip()
+
 def search_organization_details(domain):
     url = f'https://company.clearbit.com/v2/companies/find?domain={domain}'
     headers = {

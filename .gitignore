@@ -1,4 +1,6 @@
-.secrets
+# API keys
+.org_clearbit_secrets
+.phone_veriphone_secrets
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
