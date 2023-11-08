@@ -12,7 +12,7 @@
 
 - add validation: if all fields are empty, show a blocking popup with an error. one or more can be empty, but not all. create a commit with a descriptive message and push. **when any field is empty, don't send a request to the api endpoint**
 
-- protect api keys. moving api keys into hidden files and moving out of repository
+✅ - protect api keys. moving api keys into hidden files and moving out of repository ✅
 
 - parse api response and display results in the results window in human-readable format(like the text in the image below)
 
