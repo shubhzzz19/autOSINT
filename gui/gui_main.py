@@ -3,7 +3,7 @@ from tkinter import messagebox
 from tkinter.ttk import Progressbar
 from tkinter import *
 from gui.gui_results import Result
-from apis.typo_sqaut import run_dnstwist
+from apis.typo_squat import run_dnstwist
 from apis.lookup import lookup
 from apis.org_details import search_organization_details
 from apis.phone import phone_osint
