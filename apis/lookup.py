@@ -11,24 +11,20 @@ def lookup(ip):
         if info['status'] == 'fail':
             return (f"IP Lookup for {ip} failed with the message: {info['message']}")
         else:
-            return {"ip": ip,
-            "country": info['country'],
-            "countryCode": info['countryCode'],
-            "region": info['region'],
-            "regionName": info['regionName'],
-            "city": info['city'],
-            "zip": info['zip'],
-            "lat": info['lat'],
-            "lon": info['lon'],
-            "timezone": info['timezone'],
-            "offset": info['offset'],
-            "currency": info['currency'],
-            "isp": info['isp'],
-            "org": info['org'],
-            "as": info['as'],
-            "asname": info['asname'],
-            "reverse": info['reverse'],
-            "mobile": info['mobile'],
-            "proxy": info['proxy'],
-            "hosting": info['hosting']
-            }
+            return '\n'.join([
+                f"IP Information for {ip}",
+                f"Country: {info['country']} ({info['countryCode']})",
+                f"Region: {info['regionName']} ({info['region']})",
+                f"City: {info['city']}",
+                f"Zip Code: {info['zip']}",
+                f"Latitude: {info['lat']}, Longitude: {info['lon']}",
+                f"Timezone: {info['timezone']} (Offset: {info['offset']})",
+                f"Currency: {info['currency']}",
+                f"ISP: {info['isp']}",
+                f"Organization: {info['org']}",
+                f"AS: {info['as']} ({info['asname']})",
+                f"Reverse DNS: {info['reverse']}",
+                f"Mobile: {info['mobile']}",
+                f"Proxy: {info['proxy']}",
+                f"Hosting: {info['hosting']}"
+            ])
