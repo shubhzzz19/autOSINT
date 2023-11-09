@@ -9,27 +9,26 @@ def lookup(ip):
         info = result.json()
 
         if info['status'] == 'fail':
-            print(f"IP Lookup for {ip} failed with the message: {info['message']}")
+            return (f"IP Lookup for {ip} failed with the message: {info['message']}")
         else:
-            print(f"IP Information for {ip}:")
-            print(f"Country: {info['country']} ({info['countryCode']})")
-            print(f"Region: {info['regionName']} ({info['region']})")
-            print(f"City: {info['city']}")
-            print(f"Zip Code: {info['zip']}")
-            print(f"Latitude: {info['lat']}, Longitude: {info['lon']}")
-            print(f"Timezone: {info['timezone']} (Offset: {info['offset']})")
-            print(f"Currency: {info['currency']}")
-            print(f"ISP: {info['isp']}")
-            print(f"Organization: {info['org']}")
-            print(f"AS: {info['as']} ({info['asname']})")
-            print(f"Reverse DNS: {info['reverse']}")
-            print(f"Mobile: {info['mobile']}")
-            print(f"Proxy: {info['proxy']}")
-            print(f"Hosting: {info['hosting']}")
-
-while True:
-    ip = input('Enter IP you want to lookup: ')
-    lookup(ip)
-    question = input("Would you like to keep looking up IPs? Say yes or no: ")
-    if question.lower() == "no":
-        break
+            return {"ip": ip,
+            "country": info['country'],
+            "countryCode": info['countryCode'],
+            "region": info['region'],
+            "regionName": info['regionName'],
+            "city": info['city'],
+            "zip": info['zip'],
+            "lat": info['lat'],
+            "lon": info['lon'],
+            "timezone": info['timezone'],
+            "offset": info['offset'],
+            "currency": info['currency'],
+            "isp": info['isp'],
+            "org": info['org'],
+            "as": info['as'],
+            "asname": info['asname'],
+            "reverse": info['reverse'],
+            "mobile": info['mobile'],
+            "proxy": info['proxy'],
+            "hosting": info['hosting']
+            }
