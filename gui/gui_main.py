@@ -8,6 +8,7 @@ from apis.lookup import lookup
 from apis.org_details import search_organization_details
 from apis.phone import phone_osint
 
+
 class Main:
        def __init__(self, win):
               self.root = win
@@ -121,9 +122,21 @@ class Main:
               self.root.mainloop()
 
        def fetch(self):
-              self.progbar.start()
-              self.root.after(5000, self.perform_fetch)
-
+              # Check if all fields are empty
+               if (
+                     not self.e_host.get()
+                     and not self.e_Domain.get()
+                     and not self.e_ip.get()
+                     and not self.e_nm_org.get()
+                     and not self.e_email.get()
+                     and not self.e_phone.get()
+        ):
+        # Show an error message if all fields are empty
+                 messagebox.showerror("Error", "Alert! one or more field can be empty, but not all")
+               else:
+                   self.progbar.start()
+                   self.root.after(5000, self.perform_fetch)
+                   
        def perform_fetch(self):
               # self.root.destroy()
               self.win = tk.Tk()
