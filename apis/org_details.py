@@ -1,7 +1,7 @@
 import requests
 
 # API key read from hidden file not in git repository
-with open(".org_clearbit_secrets", "r") as file:
+with open("D:/autOSINT/apis/.org_clearbit_secrets", "r") as file:
     CLEARBIT_API_KEY  = file.read().rstrip()
 
 def search_organization_details(domain):
