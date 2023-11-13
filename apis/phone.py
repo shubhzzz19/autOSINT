@@ -1,7 +1,7 @@
 import requests
 
 # API key read from hidden file not in git repository
-with open("D:/autOSINT/apis/.phone_veriphone_secrets", "r") as file:
+with open("apis/.phone_veriphone_secrets", "r") as file:
     key = file.read().rstrip()
 
 endpoint = "https://api.veriphone.io"
